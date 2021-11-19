@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace nGantt.PeriodSplitter
 {
@@ -13,13 +11,10 @@ namespace nGantt.PeriodSplitter
 
         public override List<Period> Split()
         {
-            var precedingBreak = min.Date;
-            return base.Split(precedingBreak);
+            DateTime precedingBreak = min.Date;
+            return Split(precedingBreak);
         }
 
-        protected override DateTime Increase(DateTime date, int value)
-        {
-            return date.AddDays(value);
-        }
+        protected override DateTime Increase(DateTime date, int value) => date.AddDays(value);
     }
 }

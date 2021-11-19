@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows.Input;
 
 namespace nGantt
@@ -17,7 +14,9 @@ namespace nGantt
         public DelegateCommand(Action<T> execute, Predicate<T> canExecute)
         {
             if (execute == null)
+            {
                 throw new ArgumentNullException("Execute can not be null");
+            }
 
             this.execute = execute;
             this.canExecute = canExecute;
@@ -25,7 +24,7 @@ namespace nGantt
 
         public bool CanExecute(object parameter)
         {
-            return canExecute == null ? true : canExecute((T)parameter);
+            return canExecute == null || canExecute((T)parameter);
         }
         public event EventHandler CanExecuteChanged
         {

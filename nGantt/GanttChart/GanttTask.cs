@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
 
 namespace nGantt.GanttChart
@@ -28,34 +25,22 @@ namespace nGantt.GanttChart
 
         public bool IsEnabled
         {
-            get { return (bool)GetValue(IsEnabledProperty); }
-            set { SetValue(IsEnabledProperty, value); }
+            get => (bool)GetValue(IsEnabledProperty);
+            set => SetValue(IsEnabledProperty, value);
         }
-        
+
         public bool IsSelected
         {
-            get { return (bool)GetValue(IsSelectedProperty); }
-            set { SetValue(IsSelectedProperty, value); }
+            get => (bool)GetValue(IsSelectedProperty);
+            set => SetValue(IsSelectedProperty, value);
         }
 
         public double PercentageCompleted
         {
-            get 
-            {
-                return 1 - percentageCompleted;
-            }
-            set
-            {
-                percentageCompleted = value;
-            }
+            get => 1 - percentageCompleted;
+            set => percentageCompleted = value;
         }
-        public string PercentageCompletedText
-        {
-            get
-            {
-                return String.Format("{0}%", Math.Round(percentageCompleted * 100, 0));
-            }
-        }
+        public string PercentageCompletedText => string.Format("{0}%", Math.Round(percentageCompleted * 100, 0));
 
     }
 }

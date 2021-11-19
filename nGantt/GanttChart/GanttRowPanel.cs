@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows.Controls;
 using System.Windows;
 
@@ -42,14 +39,14 @@ namespace nGantt.GanttChart
 
         public DateTime MaxDate
         {
-            get { return (DateTime)GetValue(MaxDateProperty); }
-            set { SetValue(MaxDateProperty, value); }
+            get => (DateTime)GetValue(MaxDateProperty);
+            set => SetValue(MaxDateProperty, value);
         }
 
         public DateTime MinDate
         {
-            get { return (DateTime)GetValue(MinDateProperty); }
-            set { SetValue(MinDateProperty, value); }
+            get => (DateTime)GetValue(MinDateProperty);
+            set => SetValue(MinDateProperty, value);
         }
 
         protected override Size MeasureOverride(Size availableSize)

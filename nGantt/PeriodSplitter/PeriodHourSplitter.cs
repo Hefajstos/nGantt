@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace nGantt.PeriodSplitter
 {
@@ -9,19 +7,14 @@ namespace nGantt.PeriodSplitter
     {
         public PeriodHourSplitter(DateTime min, DateTime max)
             : base(min, max)
-        {
-
-        }
+        { }
 
         public override List<Period> Split()
         {
-            var precedingBreak = new DateTime(min.Year, min.Month, min.Day, min.Hour, 0, 0);
-            return base.Split(precedingBreak);
+            DateTime precedingBreak = new DateTime(min.Year, min.Month, min.Day, min.Hour, 0, 0);
+            return Split(precedingBreak);
         }
 
-        protected override DateTime Increase(DateTime date, int value)
-        {
-            return date.AddHours(value);
-        }
+        protected override DateTime Increase(DateTime date, int value) => date.AddHours(value);
     }
 }

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace nGantt.PeriodSplitter
 {
@@ -16,8 +14,8 @@ namespace nGantt.PeriodSplitter
             this.max = max;
         }
 
-        public DateTime MinDate { get { return min; } }
-        public DateTime MaxDate { get { return max; } }
+        public DateTime MinDate => min;
+        public DateTime MaxDate => max;
 
         public abstract List<Period> Split();
 
@@ -25,7 +23,7 @@ namespace nGantt.PeriodSplitter
 
         protected List<Period> Split(DateTime offsetDate)
         {
-            var firstPeriod = new Period() { Start = min, End = Increase(offsetDate, 1) };
+            Period firstPeriod = new Period() { Start = min, End = Increase(offsetDate, 1) };
             result.Add(firstPeriod);
 
             if (firstPeriod.End >= max)
@@ -37,7 +35,7 @@ namespace nGantt.PeriodSplitter
             int i = 1;
             while (Increase(offsetDate, i) < max)
             {
-                var period = new Period() { Start = Increase(offsetDate, i), End = Increase(offsetDate, i + 1) };
+                Period period = new Period() { Start = Increase(offsetDate, i), End = Increase(offsetDate, i + 1) };
                 if (period.End >= max)
                     period.End = max;
 
