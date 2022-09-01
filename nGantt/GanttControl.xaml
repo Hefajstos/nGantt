@@ -399,7 +399,7 @@
         </Grid.RowDefinitions>
         <ContentControl Grid.Row="0" ContentTemplate="{StaticResource GanttGrid}" Content="{Binding Path=GanttData}"/>
         <StackPanel Orientation="Horizontal" Grid.Row="2">
-            <Label>Size</Label>
+            <Label>Rozmiar</Label>
             <Slider Minimum="2" Maximum="100" Value="2" Name="RowHeightSlider" Width="200" Height="22"/>
         </StackPanel>
     </Grid>

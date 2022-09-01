@@ -1,7 +1,6 @@
-﻿namespace nGantt.GanttChart
+﻿namespace nGantt.GanttChart;
+
+public class GanttRowHeader
 {
-    public class GanttRowHeader
-    {
-        public string Name { get; set; }
-    }
+    public string Name { get; set; }
 }

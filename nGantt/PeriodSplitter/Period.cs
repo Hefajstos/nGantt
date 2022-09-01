@@ -1,10 +1,9 @@
 ﻿using System;
 
-namespace nGantt.PeriodSplitter
+namespace nGantt.PeriodSplitter;
+
+public class Period
 {
-    public class Period
-    {
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
-    }
+    public DateTime Start { get; set; }
+    public DateTime End { get; set; }
 }
