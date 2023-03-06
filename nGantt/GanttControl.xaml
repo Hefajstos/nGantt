@@ -11,8 +11,8 @@
         <ControlTemplate x:Key="ExpanderWithoutButton" TargetType="{x:Type Expander}">
         <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="3" SnapsToDevicePixels="true">
             <DockPanel>
-                <ContentPresenter Content="{TemplateBinding Header}" ContentTemplate="{TemplateBinding HeaderTemplate}" ContentTemplateSelector="{TemplateBinding HeaderTemplateSelector}" DockPanel.Dock="Top" Margin="1" Focusable="false" Cursor="Hand" />
-                <ContentPresenter x:Name="ExpandSite" Visibility="Collapsed" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}" Focusable="false" />
+                <ContentPresenter Content="{TemplateBinding Header}" ContentTemplate="{TemplateBinding HeaderTemplate}" ContentTemplateSelector="{TemplateBinding HeaderTemplateSelector}" DockPanel.Dock="Top" Margin="1" Focusable="false" Cursor="Hand"/>
+                <ContentPresenter x:Name="ExpandSite" Visibility="Collapsed" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}" Focusable="false"/>
             </DockPanel>
         </Border>
         <ControlTemplate.Triggers>
@@ -119,7 +119,7 @@
                                 <ContextMenu.ItemContainerStyle>
                                     <Style TargetType="MenuItem">
                                         <Setter Property="CommandParameter" Value="{Binding Path=DataContext.SelectionPeriod, Source={x:Reference root}}"/>
-                                        <Setter Property="Command" Value="{Binding ContextMenuItemClickCommand}" />
+                                        <Setter Property="Command" Value="{Binding ContextMenuItemClickCommand}"/>
                                     </Style>
                                 </ContextMenu.ItemContainerStyle>
                                 <ContextMenu.Style>
@@ -127,7 +127,7 @@
                                         <Setter Property="Visibility" Value="Visible"></Setter>
                                         <Style.Triggers>
                                             <Trigger Property="HasItems" Value="False">
-                                                <Setter Property="Visibility" Value="Hidden" />
+                                                <Setter Property="Visibility" Value="Hidden"/>
                                             </Trigger>
                                         </Style.Triggers>
                                     </Style>
@@ -161,7 +161,7 @@
                                         <ContextMenu.ItemContainerStyle>
                                             <Style TargetType="MenuItem">
                                                 <Setter Property="CommandParameter" Value="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource AncestorType=ContextMenu}}"/>
-                                                <Setter Property="Command" Value="{Binding ContextMenuItemClickCommand}" />
+                                                <Setter Property="Command" Value="{Binding ContextMenuItemClickCommand}"/>
                                             </Style>
                                         </ContextMenu.ItemContainerStyle>
                                         <ContextMenu.Style>
@@ -169,7 +169,7 @@
                                                 <Setter Property="Visibility" Value="Visible"></Setter>
                                                 <Style.Triggers>
                                                     <Trigger Property="HasItems" Value="False">
-                                                        <Setter Property="Visibility" Value="Hidden" />
+                                                        <Setter Property="Visibility" Value="Hidden"/>
                                                     </Trigger>
                                                 </Style.Triggers>
                                             </Style>
@@ -201,7 +201,7 @@
                                         <Setter Property="BorderBrush" Value="Gray"></Setter>
                                         <Style.Triggers>
                                             <Trigger Property="Border.IsMouseOver" Value="True">
-                                                <Setter Property="Border.Opacity" Value="0.9" />
+                                                <Setter Property="Border.Opacity" Value="0.9"/>
                                             </Trigger>
                                             <DataTrigger Binding="{Binding Path=IsSelected}" Value="True">
                                                 <Setter Property="BorderThickness" Value="2"></Setter>
@@ -216,7 +216,7 @@
                                         <RowDefinition Height="auto"/>
                                     </Grid.RowDefinitions>
                                     <DockPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Name="GanttTaskBorderContentArea">
-                                        <TextBlock MaxWidth="{Binding ElementName=GanttTaskBorderContentArea, Path=ActualWidth}" Text="{Binding Path=Name}" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" />
+                                        <TextBlock MaxWidth="{Binding ElementName=GanttTaskBorderContentArea, Path=ActualWidth}" Text="{Binding Path=Name}" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" TextTrimming="CharacterEllipsis"/>
                                     </DockPanel>
                                         <Border Grid.Row="1" BorderBrush="DarkGray" BorderThickness="1" Height="8" Background="Gray" Visibility="{Binding TaskProgressVisibility}">
                                         <Border.ToolTip>
@@ -267,10 +267,10 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Image Grid.Column="0" Width="16" Height="16" VerticalAlignment="Center" Source="{Binding ImagePath}"></Image>
-                            <ToggleButton Grid.Column="2" VerticalAlignment="Center"  IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Expander}}}">
+                            <ToggleButton Grid.Column="2" VerticalAlignment="Center" IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Expander}}}">
                                 <ToggleButton.Template>
                                     <ControlTemplate>
-                                        <TextBlock Text="{Binding Path=Name}"  FontWeight="Bold" HorizontalAlignment="Left" />
+                                        <TextBlock Text="{Binding Path=Name}"  FontWeight="Bold" HorizontalAlignment="Left"/>
                                     </ControlTemplate>
                                 </ToggleButton.Template>
                             </ToggleButton>
@@ -319,7 +319,7 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Image Grid.Column="0" Width="16" Height="16" VerticalAlignment="Center" Source="{Binding ImagePath}"></Image>
-                    <TextBlock Grid.Column="2" VerticalAlignment="Center" Text="{Binding Path=Name}" FontWeight="Bold" />
+                    <TextBlock Grid.Column="2" VerticalAlignment="Center" Text="{Binding Path=Name}" FontWeight="Bold"/>
                 </Grid>
             </Border>
             <ItemsControl Grid.Row="1" ItemsSource="{Binding Path=Rows}" >
@@ -331,7 +331,7 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <ContentControl  ContentTemplate="{StaticResource GanttRowTemplate}" Content="{Binding}" />
+                        <ContentControl  ContentTemplate="{StaticResource GanttRowTemplate}" Content="{Binding}"/>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
@@ -354,7 +354,7 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <ContentControl  ContentTemplate="{StaticResource GanttRowTemplate}" Content="{Binding}" />
+                        <ContentControl  ContentTemplate="{StaticResource GanttRowTemplate}" Content="{Binding}"/>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
@@ -369,7 +369,7 @@
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="200"></ColumnDefinition>
                 <ColumnDefinition Width="1"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
@@ -382,7 +382,7 @@
             <ScrollViewer Name="Scroller" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible" Grid.Row="2" Grid.ColumnSpan="3">
                 <Grid>
                     <!-- Gridlines -->
-                    <ContentControl ContentTemplate="{StaticResource GanttTimeLineGridLines}" Content="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=GridLineTimeLine}" Margin="100,0,1,0"/>
+                    <ContentControl ContentTemplate="{StaticResource GanttTimeLineGridLines}" Content="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=GridLineTimeLine}" Margin="200,0,1,0"/>
                     <!-- RowGroups -->
                     <ItemsControl ItemsSource="{Binding Path=RowGroups}"/>
                 </Grid>
@@ -393,14 +393,14 @@
 
     <Grid Margin="0,5,0,0" x:Name="root" >
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="5"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <ContentControl Grid.Row="0" ContentTemplate="{StaticResource GanttGrid}" Content="{Binding Path=GanttData}"/>
         <StackPanel Orientation="Horizontal" Grid.Row="2">
             <Label>Rozmiar</Label>
-            <Slider Minimum="2" Maximum="100" Value="2" Name="RowHeightSlider" Width="200" Height="22"/>
+            <Slider Minimum="2" Maximum="100" Value="60" Name="RowHeightSlider" Width="200" Height="22"/>
         </StackPanel>
     </Grid>
 </UserControl>
