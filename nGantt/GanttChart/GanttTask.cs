@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows;
+using System.Windows.Media;
+using Color = System.Windows.Media.Color;
 
 namespace nGantt.GanttChart;
 
@@ -15,18 +18,27 @@ public class GanttTask : DependencyObject
     {
         IsEnabled = true;
         TaskProgressVisibility = Visibility.Visible;
+        BackgroundColor = Colors.Blue;
     }
 
     public static readonly DependencyProperty IsSelectedProperty =
-        DependencyProperty.Register("IsSelected", typeof(bool), typeof(GanttTask), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.AffectsMeasure));
+        DependencyProperty.Register(nameof(IsSelected), typeof(bool), typeof(GanttTask), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.AffectsMeasure));
 
     public static readonly DependencyProperty IsEnabledProperty =
-        DependencyProperty.Register("IsEnabled", typeof(bool), typeof(GanttTask), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.AffectsMeasure));
+        DependencyProperty.Register(nameof(IsEnabled), typeof(bool), typeof(GanttTask), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.AffectsMeasure));
 
     public bool IsEnabled
     {
         get => (bool)GetValue(IsEnabledProperty);
         set => SetValue(IsEnabledProperty, value);
+    }
+
+    public SolidColorBrush Background { get; set; }
+
+    public Color BackgroundColor
+    {
+        get => Background.Color;
+        set => Background = new SolidColorBrush(value);
     }
 
     public bool IsSelected

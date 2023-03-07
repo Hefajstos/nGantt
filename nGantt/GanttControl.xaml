@@ -150,7 +150,7 @@
                     </ItemsControl.ItemContainerStyle>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Border CornerRadius="3" MouseDown="Border_MouseDown" IsHitTestVisible="True" Padding="7,5,7,2" IsEnabled="{Binding IsEnabled}">
+                            <Border CornerRadius="3" MouseDown="Border_MouseDown" Background="{Binding Background}" IsHitTestVisible="True" Padding="7,5,7,2" IsEnabled="{Binding IsEnabled}">
                                 <Border.ContextMenu>
                                     <ContextMenu ItemsSource="{Binding Path=DataContext.GanttTaskContextMenuItems, Source={x:Reference root}}">
                                         <ContextMenu.ItemTemplate>
@@ -166,7 +166,7 @@
                                         </ContextMenu.ItemContainerStyle>
                                         <ContextMenu.Style>
                                             <Style TargetType="{x:Type ContextMenu}">
-                                                <Setter Property="Visibility" Value="Visible"></Setter>
+                                                <Setter Property="Visibility" Value="Visible"/>
                                                 <Style.Triggers>
                                                     <Trigger Property="HasItems" Value="False">
                                                         <Setter Property="Visibility" Value="Hidden"/>
@@ -178,35 +178,17 @@
                                 </Border.ContextMenu>
                                 <Border.ToolTip>
                                     <StackPanel Orientation="Vertical">
-                                        <Label Content="{Binding Path=Name}" FontWeight="Bold"></Label>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding Path=Start, StringFormat={}{0:yyyy-MM-dd}}"/>
-                                            <TextBlock Text=" -> "/>
-                                            <TextBlock Text="{Binding Path=End, StringFormat={}{0:yyyy-MM-dd}}"/>
-                                        </StackPanel>
+                                        <Label Content="{Binding Path=Name}" FontWeight="Bold"/>
                                     </StackPanel>
                                 </Border.ToolTip>
                                 <Border.Style>
                                     <Style TargetType="Border">
-                                        <Setter Property="Border.Background">
-                                            <Setter.Value>
-                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                                    <GradientStop Color="#FF2669A8" Offset="0"/>
-                                                    <GradientStop Color="#FF336FA8" Offset="0.112"/>
-                                                    <GradientStop Color="#FF4390D8" Offset="1"/>
-                                                </LinearGradientBrush>
-                                            </Setter.Value>
-                                        </Setter>
                                         <Setter Property="BorderThickness" Value="1"></Setter>
                                         <Setter Property="BorderBrush" Value="Gray"></Setter>
                                         <Style.Triggers>
                                             <Trigger Property="Border.IsMouseOver" Value="True">
                                                 <Setter Property="Border.Opacity" Value="0.9"/>
                                             </Trigger>
-                                            <DataTrigger Binding="{Binding Path=IsSelected}" Value="True">
-                                                <Setter Property="BorderThickness" Value="2"></Setter>
-                                                <Setter Property="BorderBrush" Value="#FFE08943"></Setter>
-                                            </DataTrigger>
                                         </Style.Triggers>
                                     </Style>
                                 </Border.Style>
@@ -218,32 +200,6 @@
                                     <DockPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Name="GanttTaskBorderContentArea">
                                         <TextBlock MaxWidth="{Binding ElementName=GanttTaskBorderContentArea, Path=ActualWidth}" Text="{Binding Path=Name}" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" TextTrimming="CharacterEllipsis"/>
                                     </DockPanel>
-                                        <Border Grid.Row="1" BorderBrush="DarkGray" BorderThickness="1" Height="8" Background="Gray" Visibility="{Binding TaskProgressVisibility}">
-                                        <Border.ToolTip>
-                                            <TextBlock Text="{Binding PercentageCompletedText}"></TextBlock>
-                                        </Border.ToolTip>
-                                            <Grid>
-                                            <Border Name="VUMeter">
-                                                <Border.Background>
-                                                    <LinearGradientBrush>
-                                                        <LinearGradientBrush.GradientStops>
-                                                            <GradientStop Color="Red" Offset="0"></GradientStop>
-                                                            <GradientStop Color="Yellow" Offset="0.5"></GradientStop>
-                                                            <GradientStop Color="Green" Offset="1"></GradientStop>
-                                                        </LinearGradientBrush.GradientStops>
-                                                    </LinearGradientBrush>
-                                                </Border.Background>
-                                            </Border>
-                                            <Border HorizontalAlignment="Stretch" Background="Gray">
-                                                <Border.RenderTransform>
-                                                    <ScaleTransform  CenterX="{Binding ElementName=VUMeter, Path=ActualWidth}" ScaleX="{Binding PercentageCompleted}" ScaleY="1">
-
-                                                    </ScaleTransform>
-                                                </Border.RenderTransform>
-                                            </Border>
-
-                                        </Grid>
-                                    </Border>
                                 </Grid>
                             </Border>
                         </DataTemplate>
