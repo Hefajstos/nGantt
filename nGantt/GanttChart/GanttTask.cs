@@ -16,10 +16,10 @@ public class GanttTask : DependencyObject
     {
         BackgroundColor = Colors.Blue;
         Name = name;
-        Start = DateTime.Today.AddDays(start - 1);
-        End = DateTime.Today.AddDays(start + days - 1);
-        StartDay = start;
-        EndDay = start + days - 1;
+        Start = DateTime.Today.AddDays(start);
+        End = Start.AddDays(days);
+        StartDay = start + 1;
+        EndDay = start + days;
     }
 
     public SolidColorBrush Background { get; set; }
