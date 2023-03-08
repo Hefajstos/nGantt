@@ -4,6 +4,6 @@ namespace nGantt.GanttChart;
 
 public class GanttRow
 {
-    public GanttRowHeader RowHeader { get; set; }
+    public string Header { get; set; }
     public ObservableCollection<GanttTask> Tasks { get; set; }
 }

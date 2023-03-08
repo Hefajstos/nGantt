@@ -11,7 +11,7 @@ public class PeriodDaySplitter : PeriodSplitter
 
     public override List<Period> Split()
     {
-        DateTime precedingBreak = min.Date;
+        DateTime precedingBreak = Min.Date;
         return Split(precedingBreak);
     }
 

@@ -12,9 +12,9 @@ public class GanttRowPanel : Panel
         DependencyProperty.RegisterAttached("EndDate", typeof(DateTime), typeof(GanttRowPanel), new FrameworkPropertyMetadata(DateTime.MaxValue, FrameworkPropertyMetadataOptions.AffectsParentArrange));
 
     public static readonly DependencyProperty MaxDateProperty =
-        DependencyProperty.Register("MaxDate", typeof(DateTime), typeof(GanttRowPanel), new FrameworkPropertyMetadata(DateTime.MaxValue, FrameworkPropertyMetadataOptions.AffectsMeasure));
+        DependencyProperty.Register(nameof(MaxDate), typeof(DateTime), typeof(GanttRowPanel), new FrameworkPropertyMetadata(DateTime.MaxValue, FrameworkPropertyMetadataOptions.AffectsMeasure));
     public static readonly DependencyProperty MinDateProperty =
-        DependencyProperty.Register("MinDate", typeof(DateTime), typeof(GanttRowPanel), new FrameworkPropertyMetadata(DateTime.MinValue, FrameworkPropertyMetadataOptions.AffectsMeasure));
+        DependencyProperty.Register(nameof(MinDate), typeof(DateTime), typeof(GanttRowPanel), new FrameworkPropertyMetadata(DateTime.MinValue, FrameworkPropertyMetadataOptions.AffectsMeasure));
 
 
     public static DateTime GetStartDate(DependencyObject obj)
@@ -84,7 +84,7 @@ public class GanttRowPanel : Panel
 
         if (offset < 0)
         {
-            width = width + offset;
+            width += offset;
             offset = 0;
 
         }

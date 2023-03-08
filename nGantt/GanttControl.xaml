@@ -84,7 +84,7 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition Height="1"></RowDefinition>
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding Path=RowHeader.Name}" ToolTip="{Binding Path=RowHeader.Name}" Margin="15,5,0,0" TextWrapping="Wrap"></TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding Path=Header}" ToolTip="{Binding Path=Header}" Margin="15,5,0,0" TextWrapping="Wrap"></TextBlock>
                 <Grid Name="RowGrid" Grid.Column="2" Grid.Row="0" Width="Auto" Height="{Binding ElementName=RowHeightSlider, Path=Value}" Margin="0,5,0,5">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="{Binding ElementName=RowHeightSlider, Path=Value}"/>
@@ -107,6 +107,11 @@
                                     <Border.ToolTip>
                                         <StackPanel Orientation="Vertical">
                                             <Label Content="{Binding Path=Name}" FontWeight="Bold"/>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding Path=StartDay}"/>
+                                                <TextBlock Text=" -> "/>
+                                                <TextBlock Text="{Binding Path=EndDay}"/>
+                                            </StackPanel>
                                         </StackPanel>
                                     </Border.ToolTip>
                                     <Border.Style>
@@ -135,43 +140,10 @@
                     </ItemsControl>
                 </Grid>
                 <Rectangle Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="Gray"></Rectangle>
-                <Rectangle Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="Gray"></Rectangle>
+                <Rectangle Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="Gray"></Rectangle>
             </Grid>
         </DataTemplate>
         
-        <DataTemplate DataType="{x:Type ng:HeaderedGanttRowGroup}">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"></RowDefinition>
-                    <RowDefinition Height="auto"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Border BorderThickness="0,1,0,1" CornerRadius="0" Opacity="0.7" Background="WhiteSmoke" Height="25" BorderBrush="DarkGray" Padding="3" Width="{Binding ElementName=Scroller, Path=ExtentWidth}">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="4"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Image Grid.Column="0" Width="16" Height="16" VerticalAlignment="Center" Source="{Binding ImagePath}"></Image>
-                        <TextBlock Grid.Column="2" VerticalAlignment="Center" Text="{Binding Path=Name}" TextAlignment="Center" FontWeight="Bold"/>
-                    </Grid>
-                </Border>
-                <ItemsControl Grid.Row="1" ItemsSource="{Binding Path=Rows}" >
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel Orientation="Vertical">
-                            </StackPanel>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <ContentControl  ContentTemplate="{StaticResource GanttRowTemplate}" Content="{Binding}"/>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </Grid>
-        </DataTemplate>
-
         <DataTemplate DataType="{x:Type ng:GanttRowGroup}">
             <Grid>
                 <Grid.RowDefinitions>
@@ -212,8 +184,8 @@
                 <ContentControl Grid.Row="0" BorderBrush="Blue" BorderThickness="1"  Grid.Column="1" Grid.ColumnSpan="2" ContentTemplate="{StaticResource GanttTimeLineTemplate}" Content="{Binding Path=TimeLines}" Margin="0,0,18,0"/>
                 <!-- Support rows -->
                 <Rectangle Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="Gray"/>
-                <Rectangle Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="Gray"/>
-                <ScrollViewer Name="Scroller" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible" Grid.Row="2" Grid.ColumnSpan="3">
+                <Rectangle Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="Gray"/>
+                <ScrollViewer Name="Scroller" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible" Grid.Row="2" Grid.ColumnSpan="3" Grid.Column="0">
                     <Grid>
                         <!-- Gridlines -->
                         <ContentControl ContentTemplate="{StaticResource GanttTimeLineGridLines}" Content="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=GridLineTimeLine}" Margin="200,0,1,0"/>
