@@ -5,7 +5,7 @@ namespace nGantt.PeriodSplitter;
 
 public abstract class PeriodSplitter
 {
-    private List<Period> result = new List<Period>();
+    private List<Period> result = new();
     protected DateTime min;
     protected DateTime max;
     public PeriodSplitter(DateTime min, DateTime max)
@@ -23,7 +23,7 @@ public abstract class PeriodSplitter
 
     protected List<Period> Split(DateTime offsetDate)
     {
-        Period firstPeriod = new Period() { Start = min, End = Increase(offsetDate, 1) };
+        Period firstPeriod = new Period { Start = min, End = Increase(offsetDate, 1) };
         result.Add(firstPeriod);
 
         if (firstPeriod.End >= max)
@@ -35,7 +35,7 @@ public abstract class PeriodSplitter
         int i = 1;
         while (Increase(offsetDate, i) < max)
         {
-            Period period = new Period() { Start = Increase(offsetDate, i), End = Increase(offsetDate, i + 1) };
+            Period period = new Period { Start = Increase(offsetDate, i), End = Increase(offsetDate, i + 1) };
             if (period.End >= max)
                 period.End = max;
 
