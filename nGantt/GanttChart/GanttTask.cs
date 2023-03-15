@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace nGantt.GanttChart;
@@ -11,6 +12,7 @@ public class GanttTask : DependencyObject
     public string Name { get; set; }
     public int StartDay { get; set; }
     public int EndDay { get; set; }
+    public int Duration { get; set; }
     
     public GanttTask(string name, int start, int days)
     {
@@ -20,6 +22,7 @@ public class GanttTask : DependencyObject
         End = Start.AddDays(days);
         StartDay = start + 1;
         EndDay = start + days;
+        Duration = EndDay - StartDay + 1;
     }
 
     public SolidColorBrush Background { get; set; }
