@@ -23,13 +23,22 @@ public class GanttTask : DependencyObject
         StartDay = start + 1;
         EndDay = start + days;
         Duration = EndDay - StartDay + 1;
+        LineVisibility = Visibility.Hidden;
     }
 
     public SolidColorBrush Background { get; set; }
+    public SolidColorBrush Line { get; set; }
+    public Visibility LineVisibility { get; set; }
 
     public Color BackgroundColor
     {
         get => Background.Color;
         set => Background = new SolidColorBrush(value);
+    }
+
+    public Color LineColor
+    {
+        get => Line.Color;
+        set => Line = new SolidColorBrush(value);
     }
 }
