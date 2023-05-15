@@ -28,6 +28,7 @@ public class GanttTask : DependencyObject
 
     public SolidColorBrush Background { get; set; }
     public SolidColorBrush Line { get; set; }
+    public SolidColorBrush Foreground { get; set; }
     public Visibility LineVisibility { get; set; }
 
     public Color BackgroundColor
@@ -40,5 +41,11 @@ public class GanttTask : DependencyObject
     {
         get => Line.Color;
         set => Line = new SolidColorBrush(value);
+    }
+
+    public Color ForegroundColor
+    {
+        get => Foreground.Color;
+        set => Foreground = new SolidColorBrush(value);
     }
 }
