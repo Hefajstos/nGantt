@@ -137,7 +137,7 @@
                                             <RowDefinition Height="auto"/>
                                         </Grid.RowDefinitions>
                                         <DockPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Name="GanttTaskBorderContentArea">
-                                            <TextBlock MaxWidth="{Binding ElementName=GanttTaskBorderContentArea, Path=ActualWidth}" Foreground="{Binding Foreground}" Text="{Binding Path=Name}" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" TextTrimming="CharacterEllipsis"/>
+                                            <TextBlock MaxWidth="{Binding ElementName=GanttTaskBorderContentArea, Path=ActualWidth}" FontWeight="Bold" Foreground="{Binding Foreground}" Text="{Binding Path=Name}" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" TextTrimming="CharacterEllipsis"/>
                                         </DockPanel>
                                         <Border Grid.Row="1" BorderThickness="1" Height="8" Background="{Binding Line}" Visibility="{Binding LineVisibility}"/>
                                     </Grid>
