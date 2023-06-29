@@ -5,6 +5,7 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWPF>true</UseWPF>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+    <Configurations>Debug;Release;Debug_prod;Release_prod</Configurations>
   </PropertyGroup>
   <ItemGroup>
     <AppDesigner Include="Properties\" />
