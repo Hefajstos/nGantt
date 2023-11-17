@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net7.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <OutputType>Library</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWPF>true</UseWPF>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
-    <Configurations>Debug;Release;DebugProd;ReleaseProd</Configurations>
+    <Configurations>Debug;Release;DebugTest;ReleaseTest;DebugProd;ReleaseProd</Configurations>
   </PropertyGroup>
   <ItemGroup>
     <AppDesigner Include="Properties\" />
